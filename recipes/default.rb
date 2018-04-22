@@ -2,4 +2,11 @@
 # Cookbook:: wordpress-lemp
 # Recipe:: default
 #
-# Copyright:: 2018, The Authors, All Rights Reserved.
+
+apt_update
+
+%w[nginx php-fpm php-mysql mysql-server].each do |package|
+  package(package) do
+    action :install
+  end
+end
